@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- Debris cluster -->
+  <polygon points="38,22 44,24 41,29 35,26" fill="#EF4949" opacity="0.9"/>
+  <polygon points="52,36 57,34 59,40 54,42" fill="#EF4949" opacity="0.8"/>
+  <polygon points="24,45 28,42 30,48 25,50" fill="#EF4949" opacity="0.75"/>
+  <circle cx="48" cy="18" r="1.5" fill="#EF4949"/>
+  <circle cx="62" cy="48" r="1" fill="#EF4949"/>
+  <circle cx="20" cy="30" r="1.2" fill="#EF4949"/>
+  <circle cx="34" cy="58" r="1.5" fill="#EF4949"/>
+  <circle cx="56" cy="60" r="2" fill="#EF4949" opacity="0.7"/>
+  <!-- Velocity vectors -->
+  <line x1="38" y1="22" x2="28" y2="16" stroke="#EF4949" stroke-width="1" stroke-dasharray="2 2" opacity="0.6"/>
+  <line x1="52" y1="36" x2="64" y2="44" stroke="#EF4949" stroke-width="1" stroke-dasharray="2 2" opacity="0.6"/>
+  <!-- Target Reticle -->
+  <circle cx="40" cy="40" r="28" stroke="#EF4949" stroke-width="1" stroke-dasharray="4 4" opacity="0.35"/>
+  <line x1="40" y1="6" x2="40" y2="14" stroke="#EF4949" stroke-width="1.5"/>
+  <line x1="40" y1="66" x2="40" y2="74" stroke="#EF4949" stroke-width="1.5"/>
+  <line x1="6" y1="40" x2="14" y2="40" stroke="#EF4949" stroke-width="1.5"/>
+  <line x1="66" y1="40" x2="74" y2="40" stroke="#EF4949" stroke-width="1.5"/>
+</svg>

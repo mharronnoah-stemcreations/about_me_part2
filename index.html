@@ -3,158 +3,593 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guess_Who_Harron_Is</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Guess_Who_Harron_Is — Personal developer portfolio, academic schedule, and profile of Harron Noah A. Melgar, 1st Year BSCS Student at Bicol University.">
+  <title>Guess_Who_Harron_Is // Harron Noah A. Melgar — BSCS 1A Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Pixelify+Sans:wght@500;600;700&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-  <header>
-    <h1>Harron Noah A. Melgar</h1>
 
-    <p>1st Year BSCS Student. Passionate about web development and programming, QlNDUyAxQQ==.</p>
+  <header class="site-nav-header" role="banner">
+    <input type="checkbox" id="nav-toggle" class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
 
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#hobbies">Hobbies</a></li>
-        <li><a href="#schedule">Schedule</a></li>
-        <li><a href="#favorites">Favorites</a></li>
-      </ul>
-    </nav>
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand" aria-label="Harron Noah A. Melgar Portfolio">
+        <svg class="nav-brand-mark" viewBox="0 0 100 100" fill="none" stroke="currentColor" aria-hidden="true">
+          <ellipse cx="50" cy="50" rx="42" ry="18" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 3" opacity="0.6" transform="rotate(-25 50 50)"/>
+          <ellipse cx="50" cy="50" rx="34" ry="13" stroke="currentColor" stroke-width="1.8" transform="rotate(35 50 50)"/>
+          <circle cx="50" cy="50" r="14" fill="#121824" stroke="currentColor" stroke-width="2.2"/>
+          <circle cx="50" cy="50" r="17" stroke="#4E95FF" stroke-width="1.2" opacity="0.8" stroke-dasharray="2 2"/>
+          <path d="M 16 74 Q 50 28 84 26" stroke="#4E95FF" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="78" cy="27" r="2.8" fill="#4E95FF"/>
+        </svg>
+        <div class="nav-brand-text">
+          <span class="nav-brand-name">HARRON NOAH A. MELGAR</span>
+          <span class="nav-brand-sub">BSCS 1A // BICOL UNIVERSITY</span>
+        </div>
+      </a>
+
+      <!-- Center: Navigation Links with HUD Floating Pill -->
+      <nav role="navigation" aria-label="Main Navigation">
+        <ul class="nav-links-menu nav-pill-dock">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#hobbies" class="nav-link">Hobbies</a></li>
+          <li><a href="#schedule" class="nav-link">Schedule</a></li>
+          <li><a href="#favorites" class="nav-link">Favorites</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Action CTA & Mobile Hamburger Trigger -->
+      <div class="nav-action-wrapper">
+        <a href="#schedule" class="btn-nav-action">
+          <span class="telemetry-dot" style="color: var(--color-accent-orbit);"></span>
+          View Schedule
+        </a>
+
+        <!-- Pure CSS Hamburger Label -->
+        <label for="nav-toggle" class="mobile-hamburger-btn" aria-label="Open Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Real-Time Green Laser Telemetry Progress Bar with Sparking Tip & Robot Chat Buddy -->
+    <div class="nav-scroll-progress-wrap" aria-hidden="true">
+      <div id="nav-scroll-bar" class="nav-scroll-progress-bar"></div>
+      <div id="nav-spark-tip" class="nav-scroll-spark-tip">
+        <!-- Live Plasma Sparking Tip -->
+        <div class="spark-core"></div>
+        <div class="spark-flare"></div>
+        <div class="spark-particle p1"></div>
+        <div class="spark-particle p2"></div>
+        <div class="spark-particle p3"></div>
+        <div class="spark-particle p4"></div>
+      </div>
+
+      <!-- Robot Buddy — always visible, walks along bar center -->
+      <div id="robo-buddy" class="robo-buddy">
+        <!-- Holographic Aura ring -->
+        <div class="robo-aura"></div>
+        <div class="robo-aura robo-aura-2"></div>
+
+        <div class="robo-body">
+          <!-- Antenna -->
+          <div class="robo-antenna">
+            <div class="robo-antenna-stem"></div>
+            <div class="robo-antenna-ball"></div>
+            <div class="robo-antenna-signal s1"></div>
+            <div class="robo-antenna-signal s2"></div>
+          </div>
+          <!-- Head with visor -->
+          <div class="robo-head">
+            <div class="robo-visor">
+              <div class="robo-eye robo-eye-l"></div>
+              <div class="robo-eye robo-eye-r"></div>
+              <div class="robo-visor-scanline"></div>
+            </div>
+            <div class="robo-ear robo-ear-l"></div>
+            <div class="robo-ear robo-ear-r"></div>
+          </div>
+          <!-- Torso with core reactor -->
+          <div class="robo-torso">
+            <div class="robo-core">
+              <div class="robo-core-ring"></div>
+            </div>
+            <div class="robo-panel robo-panel-l"></div>
+            <div class="robo-panel robo-panel-r"></div>
+          </div>
+          <!-- Arms with claws -->
+          <div class="robo-arm robo-arm-l">
+            <div class="robo-claw"></div>
+          </div>
+          <div class="robo-arm robo-arm-r">
+            <div class="robo-claw"></div>
+          </div>
+          <!-- Jet thrusters -->
+          <div class="robo-jets">
+            <div class="robo-jet robo-jet-l">
+              <div class="robo-flame"></div>
+            </div>
+            <div class="robo-jet robo-jet-r">
+              <div class="robo-flame"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Speech Bubble -->
+        <div id="robo-speech" class="robo-speech">
+          <div class="robo-speech-content">
+            <span class="robo-speech-status" id="robo-status-dot"></span>
+            <span id="cloud-pct" class="cloud-pct">0%</span>
+            <span id="cloud-msg" class="cloud-msg">Booting</span>
+          </div>
+          <div class="robo-speech-tail"></div>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <main>
+  <div class="cylinder-rolling-horizon" aria-hidden="true">
+    <div class="cylinder-specular-sheen"></div>
+  </div>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <img src="images/Profile.jpg" alt="A picture of me from my Junior year" width="200">
+  <main id="main-content">
 
-      <p>
-        Hello! My name is <strong>Harron Noah A. Melgar</strong>. I am a first-year BSCS
-        student at Bicol University. I chose Computer Science because I enjoy programming, 
-        creating innovative solutions, and exploring how technology can improve people's lives. 
-        I am particularly interested in software development, artificial intelligence, and building 
-        applications that solve real-world problems. Through this course, I hope to strengthen my 
-        programming skills, develop my problem-solving and critical-thinking abilities, and gain a 
-        deeper understanding of computer systems and emerging technologies. Ultimately, I want to 
-        use what I learn to create meaningful projects and develop solutions that can make a positive 
-        impact on society.
-      </p>
+    <!-- Floating Moon that follows scroll across the entire page -->
+    <div id="wandering-moon" class="wandering-moon" aria-hidden="true">
+      <div class="wm-orbit-ring wm-orbit-1"></div>
+      <div class="wm-orbit-ring wm-orbit-2"></div>
+      <div class="moon-globe-sphere">
+        <div class="moon-globe-texture"></div>
+        <div class="moon-atmosphere-rim"></div>
+      </div>
+    </div>
+    
+    <section id="hero" class="hero-section" aria-label="Harron Noah A. Melgar Introduction">
+      <div class="hero-backdrop-stars" aria-hidden="true"></div>
 
-      <!-- MY COMMENT 1: The <img> tag is used to display an image i privided a path with on the webpage. It has a source attribute (src) that specifies the path to the image file, and an alt attribute that provides alternative text for the image. -->
+      <div class="container">
+        <div class="hero-centered-wrap">
+          <div class="hero-stage-visual-centered" role="img" aria-label="Conceptual 3D visualization of the rotating Moon surrounded by orbital trajectory rings and telemetry annotations">
+            
+            <div class="orbit-ring-container" aria-hidden="true">
+              <div class="orbit-ring leo" style="border-color: rgba(78, 149, 255, 0.45);">
+                <div class="satellite-node">
+                  <span class="telemetry-dot" style="color: var(--color-accent-orbit);"></span>
+                  <span class="text-mono" style="color: var(--color-accent-orbit);">ORBIT // LEO</span>
+                </div>
+              </div>
+              <div class="orbit-ring meo" style="border-color: rgba(255, 255, 255, 0.15);"></div>
+              <div class="orbit-ring geo" style="border-color: rgba(52, 211, 153, 0.35);"></div>
+            </div>
+
+            <div class="moon-globe-sphere">
+              <div class="moon-globe-texture"></div>
+              <div class="moon-atmosphere-rim"></div>
+            </div>
+
+            <div class="hero-hud-card hud-card-top" aria-hidden="true" style="border-left-color: var(--color-accent-orbit);">
+              <span class="hud-card-label">ACADEMIC PROGRAM</span>
+              <span class="hud-card-value">BSCS 1A</span>
+              <span class="hud-card-sub text-orbit">BICOL UNIVERSITY</span>
+            </div>
+
+            <div class="hero-hud-card hud-card-bottom" aria-hidden="true" style="border-left-color: var(--color-accent-cyan);">
+              <span class="hud-card-label">MISSION DIRECTIVE</span>
+              <span class="hud-card-value">PILOT &amp; AI ENGINEER</span>
+              <span class="hud-card-sub" style="color: var(--color-accent-cyan);">FUTURE FOCUS</span>
+            </div>
+          </div>
+
+          <div class="hero-centered-editorial">
+            <div class="hero-mission-badge">
+              <span class="telemetry-dot" style="color: var(--color-accent-cyan);"></span>
+              <span>STUDENT IDENTITY: CS 101 INTRODUCTION TO COMPUTING</span>
+              <span class="badge-alert" style="color: var(--color-accent-orbit);">// BSCS 1A</span>
+            </div>
+
+            <h1 class="hero-main-headline">HARRON NOAH A. MELGAR</h1>
+
+            <p class="hero-supporting-copy">
+              1st Year BSCS Student. Passionate about web development and programming, QlNDUyAxQQ==. Building innovative computational solutions and exploring how technology can solve real-world problems.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#about" class="btn-primary-hero">
+                <span>Explore About Me</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#schedule" class="btn-secondary-hero">
+                <span>View Class Schedule</span>
+              </a>
+            </div>
+
+            <div class="telemetry-tag neutral" style="margin-top: 0.25rem;">
+              <span>BICOL UNIVERSITY // COLLEGE OF SCIENCE // DEPARTMENT OF COMPUTER SCIENCE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-telemetry-banner" role="region" aria-label="Student Academic Profile Metrics">
+          <div class="hero-metric-tile">
+            <span class="metric-num text-orbit">BSCS 1A</span>
+            <span class="metric-label">Academic Section</span>
+            <span class="metric-context">Bicol University College of Science.</span>
+          </div>
+
+          <div class="hero-metric-tile">
+            <span class="metric-num">7 SUBJECTS</span>
+            <span class="metric-label">Course Schedule</span>
+            <span class="metric-context">Comprehensive computing and analysis curriculum.</span>
+          </div>
+
+          <div class="hero-metric-tile">
+            <span class="metric-num">4 HOBBIES</span>
+            <span class="metric-label">Analytical Pursuits</span>
+            <span class="metric-context">Chess, Programming, Books, Video Games.</span>
+          </div>
+
+          <div class="hero-metric-tile">
+            <span class="metric-num text-hazard" style="color: var(--color-accent-cyan);">TOP 3</span>
+            <span class="metric-label">Lifelong Ambitions</span>
+            <span class="metric-context">Aviation, AI Engineering, and Spreading Happiness.</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ------------- SECTION 2: HOBBIES AND GOALS ------------- -->
-    <section id="hobbies">
-      <h2>My Hobbies and Goals</h2>
+    <section id="about" class="section-wrapper" aria-labelledby="heading-about">
+      <div class="container">
+        
+        <div class="section-header-editorial">
+          <div class="section-meta-block">
+            <span class="section-index">DOSSIER // 01</span>
+            <span class="section-meta-title">BIOGRAPHICAL BACKGROUND</span>
+          </div>
+          <div class="section-title-wrap">
+            <h2 id="heading-about" class="heading-section">About Me</h2>
+            <p class="section-lead-text">
+              First-year Computer Science undergraduate student at Bicol University, dedicated to software development, artificial intelligence, and purposeful engineering.
+            </p>
+          </div>
+        </div>
 
-      <h3>Hobbies</h3>
-      <ul>
-        <li>Playing Chess</li>
-        <li>Programming</li>
-        <li>Reading Books</li>
-        <li>Playing Video Games</li>
-      </ul>
+        <div class="author-dossier-grid">
+          <div class="author-profile-wrap">
+            <div class="author-profile-frame">
+              <img src="images/Profile.jpg" alt="A picture of me from my Junior year" width="200">
+            </div>
+            <div class="telemetry-tag neutral">
+              <span>ARCHIVE PHOTO // JUNIOR YEAR</span>
+            </div>
+          </div>
 
-      <h3>My Top 3 Goals</h3>
-      <ol>
-        <li>Become a Pilot</li>
-        <li>Be an AI Engineer</li>
-        <li>Make those whom I love Happy</li>
-      </ol>
+          <div class="author-bio-content">
+            <div class="author-meta-row">
+              <span class="telemetry-tag neutral" style="color: var(--color-accent-orbit); border-color: var(--color-accent-orbit);">BICOL UNIVERSITY</span>
+              <span class="telemetry-tag neutral">1ST YEAR BSCS</span>
+              <span class="telemetry-tag neutral">QlNDUyAxQQ==</span>
+            </div>
+
+            <p class="body-standard">
+              Hello! My name is <strong>Harron Noah A. Melgar</strong>. I am a first-year BSCS
+              student at Bicol University. I chose Computer Science because I enjoy programming, 
+              creating innovative solutions, and exploring how technology can improve people's lives. 
+              I am particularly interested in software development, artificial intelligence, and building 
+              applications that solve real-world problems. Through this course, I hope to strengthen my 
+              programming skills, develop my problem-solving and critical-thinking abilities, and gain a 
+              deeper understanding of computer systems and emerging technologies. Ultimately, I want to 
+              use what I learn to create meaningful projects and develop solutions that can make a positive 
+              impact on society.
+            </p>
+
+            <div class="spec-comment-callout">
+              <!-- MY COMMENT 1: The <img> tag is used to display an image i privided a path with on the webpage. It has a source attribute (src) that specifies the path to the image file, and an alt attribute that provides alternative text for the image. -->
+              <span class="spec-comment-header">MY COMMENT 1</span>
+              <p class="spec-comment-body">The <code>&lt;img&gt;</code> tag is used to display an image provided with a relative path on the webpage. It features a <code>src</code> attribute pointing to the image asset and an <code>alt</code> attribute providing alternative text for accessibility and screen readers.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <section id="schedule">
-      <h2>My Class Schedule</h2>
+    <section id="hobbies" class="section-wrapper" aria-labelledby="heading-hobbies">
+      <div class="container">
+        
+        <div class="section-header-editorial">
+          <div class="section-meta-block">
+            <span class="section-index">DOSSIER // 02</span>
+            <span class="section-meta-title">PASSIONS &amp; HORIZONS</span>
+          </div>
+          <div class="section-title-wrap">
+            <h2 id="heading-hobbies" class="heading-section">My Hobbies and Goals</h2>
+            <p class="section-lead-text">
+              Analytical pastimes that train strategic focus, paired with core lifelong ambitions in aviation, artificial intelligence, and human happiness.
+            </p>
+          </div>
+        </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Subject</th>
-            <th>Day</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>CS 101: Introduction to Computing</td>
-            <td>M W</td>
-            <td>7:30 - 8:30</td>
-          </tr>
-          <tr>
-            <td>CS 102: Computer Programming 1</td>
-            <td>M W Th</td>
-            <td>9:00 - 11:30</td>
-          </tr>
-          <tr>
-            <td>Mathematical Analysis</td>
-            <td>T Th F</td>
-            <td>10:30 - 11:30 & 8:00 - 9:30 on fridays</td>
-          </tr>
-          <tr>
-            <td>Physics for Computing</td>
-            <td>T Th</td>
-            <td>9:00 - 10:00</td>
-          </tr>
-          <tr>
-            <td>PathFit 1</td>
-            <td>Th</td>
-            <td>7:00 - 8:30</td>
-          </tr>
-          <tr>
-            <td>Understanding the Self</td>
-            <td>F</td>
-            <td>1:00 - 3:30</td>
-          </tr>
-          <tr>
-            <td>LTS</td>
-            <td>Sat</td>
-            <td>1:30 - 4:30</td>
-          </tr>
-        </tbody>
-      </table>
+        <div class="hobbies-goals-layout">
+          <!-- Hobbies Card -->
+          <div class="dossier-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="telemetry-tag neutral">ANALYTICAL PURSUITS</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-accent-orbit);"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24"/></svg>
+            </div>
+            
+            <h3 class="heading-subsection">Hobbies</h3>
+            
+            <ul class="dossier-list-styled">
+              <li>
+                <div class="dossier-item-wrap">
+                  <strong class="dossier-item-title">Playing Chess</strong>
+                  <p class="dossier-item-desc">Tactical positioning, pattern recognition, and competitive calculation on international platforms.</p>
+                </div>
+              </li>
+              <li>
+                <div class="dossier-item-wrap">
+                  <strong class="dossier-item-title">Programming</strong>
+                  <p class="dossier-item-desc">Architecting web interfaces, mastering algorithms, and exploring computational system design.</p>
+                </div>
+              </li>
+              <li>
+                <div class="dossier-item-wrap">
+                  <strong class="dossier-item-title">Reading Books</strong>
+                  <p class="dossier-item-desc">Broadening perspective, critical thinking, literature, and analytical problem-solving.</p>
+                </div>
+              </li>
+              <li>
+                <div class="dossier-item-wrap">
+                  <strong class="dossier-item-title">Playing Video Games</strong>
+                  <p class="dossier-item-desc">Immersive digital worlds, strategic decision-making, and rapid situational assessment.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
 
-      <!-- MY COMMENT 2: <tr> represents a table row, <th> represents a header cell, and <td> represents a data cell just the same as the ones used in spreadsheets, but here they are coded and used differently but almost the same way to create a structured layout for the class schedule. -->
+          <!-- Top 3 Goals Card -->
+          <div id="goals" class="dossier-card" style="border-top: 3px solid var(--color-accent-orbit);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="telemetry-tag neutral" style="color: var(--color-accent-cyan); border-color: rgba(52, 211, 153, 0.3);">FLIGHT &amp; LIFE OBJECTIVES</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-accent-cyan);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            
+            <h3 class="heading-subsection">My Top 3 Goals</h3>
+            
+            <ol class="dossier-ordered-list">
+              <li>
+                <div class="dossier-item-wrap">
+                  <strong class="dossier-item-title">Become a Pilot</strong>
+                  <p class="dossier-item-desc">Commanding aircraft, mastering aeronautical flight principles, and navigating the open skies.</p>
+                </div>
+              </li>
+              <li>
+                <div class="dossier-item-wrap">
+                  <strong class="dossier-item-title">Be an AI Engineer</strong>
+                  <p class="dossier-item-desc">Developing intelligent systems, neural computing, and automated technologies to advance humanity.</p>
+                </div>
+              </li>
+              <li>
+                <div class="dossier-item-wrap">
+                  <strong class="dossier-item-title">Make those whom I love Happy</strong>
+                  <p class="dossier-item-desc">The ultimate foundational purpose: bringing peace, loyalty, and joy to family and loved ones.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <section id="favorites">
-      <h2>My Favorites</h2>
+    <section id="schedule" class="section-wrapper" aria-labelledby="heading-schedule">
+      <div class="container">
+        
+        <div class="section-header-editorial">
+          <div class="section-meta-block">
+            <span class="section-index">DOSSIER // 03</span>
+            <span class="section-meta-title">ACADEMIC TIMETABLE</span>
+          </div>
+          <div class="section-title-wrap">
+            <h2 id="heading-schedule" class="heading-section">My Class Schedule</h2>
+            <p class="section-lead-text">
+              Weekly class schedule for the first semester, BS Computer Science curriculum at Bicol University.
+            </p>
+          </div>
+        </div>
 
-      <p>
-        One website I enjoy visiting is
-        <a href="https://chess.com" target="_blank" rel="noopener">Chess.com</a>
-        because it's a great place to play chess and improve my skills and aligned with my hobby, I like to oftenly visit this site to play with chess players all across the world.
-        Another website I like is 
-        <a href="https://lichess.org" target="_blank" rel="noopener">Lichess</a>
-        because it's another platform to play chess and well when chess.com takes too long to pair to an opponent, I oftenly visit this site also to play chess with other players across the world.
+        <div class="schedule-table-wrap">
+          <table class="schedule-telemetry-table">
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Day</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="schedule-subject-name">CS 101: Introduction to Computing</span></td>
+                <td><span class="schedule-day-badge">M W</span></td>
+                <td><span class="schedule-time-badge">7:30 - 8:30</span></td>
+              </tr>
+              <tr>
+                <td><span class="schedule-subject-name">CS 102: Computer Programming 1</span></td>
+                <td><span class="schedule-day-badge">M W Th</span></td>
+                <td><span class="schedule-time-badge">9:00 - 11:30</span></td>
+              </tr>
+              <tr>
+                <td><span class="schedule-subject-name">Mathematical Analysis</span></td>
+                <td><span class="schedule-day-badge">T Th F</span></td>
+                <td><span class="schedule-time-badge">10:30 - 11:30 &amp; 8:00 - 9:30 on Fridays</span></td>
+              </tr>
+              <tr>
+                <td><span class="schedule-subject-name">Physics for Computing</span></td>
+                <td><span class="schedule-day-badge">T Th</span></td>
+                <td><span class="schedule-time-badge">9:00 - 10:00</span></td>
+              </tr>
+              <tr>
+                <td><span class="schedule-subject-name">PathFit 1</span></td>
+                <td><span class="schedule-day-badge">Th</span></td>
+                <td><span class="schedule-time-badge">7:00 - 8:30</span></td>
+              </tr>
+              <tr>
+                <td><span class="schedule-subject-name">Understanding the Self</span></td>
+                <td><span class="schedule-day-badge">F</span></td>
+                <td><span class="schedule-time-badge">1:00 - 3:30</span></td>
+              </tr>
+              <tr>
+                <td><span class="schedule-subject-name">LTS</span></td>
+                <td><span class="schedule-day-badge">Sat</span></td>
+                <td><span class="schedule-time-badge">1:30 - 4:30</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-        Another favorite thing of mine is my favorite color which is <strong>Black and White</strong> (kahit na green nilagay ko sa site ko kasi sabi ni Mama mas maganda daw po) because it represents elegance, sophistication, and mystery. It can also convey a sense of power and authority. I love to wear black clothing because it makes me feel confident and stylish but unfortunately, due to the heat these days I try not to wear it and choose lighter colors instead like white another fave color of mine. Additionally, black is a versatile color that can be paired with almost any other color, making it easy to create different looks and styles (according sa neresearch ko hehe coz yeah).
-        <a href="https://www.instagram.com/reel/DQI3IWdE2EJ/" target="_blank" rel="noopener">Instagram Reel</a>
-        view this link for an example.
-      </p>
+        <div class="spec-comment-callout">
+          <!-- MY COMMENT 2: <tr> represents a table row, <th> represents a header cell, and <td> represents a data cell just the same as the ones used in spreadsheets, but here they are coded and used differently but almost the same way to create a structured layout for the class schedule. -->
+          <span class="spec-comment-header">MY COMMENT 2</span>
+          <p class="spec-comment-body"><code>&lt;tr&gt;</code> represents a table row, <code>&lt;th&gt;</code> represents a header cell, and <code>&lt;td&gt;</code> represents a data cell just the same as the ones used in spreadsheets, but here they are coded and used differently to create a structured layout for the class schedule.</p>
+        </div>
 
-      <!-- MY COMMENT 3: href specifies the URL of the page the link goes to for example: https://chess.com the one I used above, when clicked, will navigate to that URL and in that case it will open the link in a new tab also, to test even further I added more links like the lichess.org and instagram.com reel. -->
+      </div>
     </section>
 
-    <section id="private-section" hidden>
-      <h2>Private Notes</h2>
-      <p>If mahanap mo po yaa sir within 2 days na mapasa ko may 10 pesos ka po ;)).</p>
+    <section id="favorites" class="section-wrapper" aria-labelledby="heading-favorites">
+      <div class="container">
+        
+        <div class="section-header-editorial">
+          <div class="section-meta-block">
+            <span class="section-index">DOSSIER // 04</span>
+            <span class="section-meta-title">CULTURAL &amp; DIGITAL HUBS</span>
+          </div>
+          <div class="section-title-wrap">
+            <h2 id="heading-favorites" class="heading-section">My Favorites</h2>
+            <p class="section-lead-text">
+              Digital platforms, aesthetic philosophy, and multimedia bookmarks.
+            </p>
+          </div>
+        </div>
+
+        <div class="favorites-editorial-card">
+          <p class="body-standard">
+            One website I enjoy visiting is
+            <a href="https://chess.com" target="_blank" rel="noopener">Chess.com</a>
+            because it's a great place to play chess and improve my skills and aligned with my hobby, I like to oftenly visit this site to play with chess players all across the world.
+            Another website I like is 
+            <a href="https://lichess.org" target="_blank" rel="noopener">Lichess</a>
+            because it's another platform to play chess and well when chess.com takes too long to pair to an opponent, I oftenly visit this site also to play chess with other players across the world.
+          </p>
+
+          <p class="body-standard">
+            Another favorite thing of mine is my favorite color which is <strong>Black and White</strong> (kahit na green nilagay ko sa site ko kasi sabi ni Mama mas maganda daw po) because it represents elegance, sophistication, and mystery. It can also convey a sense of power and authority. I love to wear black clothing because it makes me feel confident and stylish but unfortunately, due to the heat these days I try not to wear it and choose lighter colors instead like white another fave color of mine. Additionally, black is a versatile color that can be paired with almost any other color, making it easy to create different looks and styles (according sa neresearch ko hehe coz yeah).
+            <a href="https://www.instagram.com/reel/DQI3IWdE2EJ/" target="_blank" rel="noopener">Instagram Reel</a>
+            view this link for an example.
+          </p>
+
+          <div class="spec-comment-callout">
+            <!-- MY COMMENT 3: href specifies the URL of the page the link goes to for example: https://chess.com the one I used above, when clicked, will navigate to that URL and in that case it will open the link in a new tab also, to test even further I added more links like the lichess.org and instagram.com reel. -->
+            <span class="spec-comment-header">MY COMMENT 3</span>
+            <p class="spec-comment-body"><code>href</code> specifies the URL of the page the link goes to (for example: <code>https://chess.com</code>). When clicked, it navigates to that destination in a new tab; additionally tested with <code>lichess.org</code> and an Instagram reel.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="private-section" hidden class="container">
+      <div class="private-note-card">
+        <span class="telemetry-tag hazard">
+          <span class="telemetry-dot" style="color: var(--color-accent-hazard);"></span>
+          SECRET CLEARANCE UNLOCKED
+        </span>
+        <h2>Private Notes</h2>
+        <p>If mahanap mo po yaa sir within 2 days na mapasa ko may 10 pesos ka po ;)) HEHEHEHEHE.</p>
+      </div>
     </section>
 
   </main>
 
-  <footer>
-    <!-- TODO: Replace with your name and the year. -->
-    <p>Made by Harron Noah A. Melgar for CS 101, Bicol University.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      
+      <div class="footer-top-grid" style="grid-template-columns: 1.8fr 1fr 1fr;">
+        <!-- Brand Identity & Creator -->
+        <div class="footer-brand-col">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <svg style="width: 26px; height: 26px; color: var(--color-accent-orbit);" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+              <ellipse cx="50" cy="50" rx="42" ry="18" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>
+              <ellipse cx="50" cy="50" rx="34" ry="13" stroke="currentColor" stroke-width="2"/>
+              <circle cx="50" cy="50" r="14" fill="#141923" stroke="currentColor" stroke-width="2"/>
+              <circle cx="78" cy="27" r="3" fill="#4E95FF"/>
+            </svg>
+            <span class="footer-brand-title">HARRON NOAH A. MELGAR</span>
+          </div>
 
-    <details class="private-access">
-      <summary aria-label="Open private section">-->•</summary>
-      <form id="private-access-form">
-        <label for="private-password">Password</label>
-        <input id="private-password" type="password" required>
-        <button type="submit">Open</button>
-        <span id="password-message" role="status" aria-live="polite"></span>
-      </form>
-    </details>
+          <p class="footer-desc">
+            Made by Harron Noah A. Melgar for CS 101 , Bicol University, BSCS 1A.
+          </p>
+
+          <details class="private-access">
+            <summary aria-label="Open private section">-->•</summary>
+            <form id="private-access-form">
+              <label for="private-password">Password</label>
+              <input id="private-password" type="password" required autocomplete="off" placeholder="Enter password...">
+              <button type="submit">Open</button>
+              <span id="password-message" role="status" aria-live="polite"></span>
+            </form>
+          </details>
+
+          <p class="footer-desc">
+            Personal developer portfolio, computing timetable, and academic profile created with strict semantic HTML5 and modern CSS3.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Portfolio Corridors</h4>
+          <ul class="footer-links-list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#favorites">Favorites</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Platforms &amp; College</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://www.chess.com/member/harronnoah160" target="_blank" rel="noopener noreferrer">Chess.com Profile</a></li>
+            <li><a href="https://lichess.org/@/The_Herron" target="_blank" rel="noopener noreferrer">Lichess Profile</a></li>
+            <li><a href="https://www.instagram.com/reel/DQI3IWdE2EJ/" target="_blank" rel="noopener noreferrer">Clothing Reel</a></li>
+            <li><a href="https://bicol-u.edu.ph" target="_blank" rel="noopener noreferrer">Bicol University</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-telemetry">
+        <div>
+          <span>&copy; 2026 HARRON NOAH A. MELGAR // CS 101 INTRODUCTION TO COMPUTING // BICOL UNIVERSITY.</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <span class="footer-status-pill">
+            <span class="telemetry-dot"></span>
+            ALL SENSORS NOMINAL
+          </span>
+          <span>SYSTEM: BSCS 1A ACTIVE</span>
+        </div>
+      </div>
+
+    </div>
   </footer>
 
   <script>
@@ -180,6 +615,80 @@
       passwordMessage.textContent = "";
       privateSection.scrollIntoView({ behavior: "smooth" });
     });
+
+    // ========================================================================
+    // Real-Time Green Laser Telemetry & Robot Buddy Controller
+    // ========================================================================
+    const scrollBar = document.getElementById("nav-scroll-bar");
+    const sparkTip = document.getElementById("nav-spark-tip");
+    const roboBuddy = document.getElementById("robo-buddy");
+    const roboSpeech = document.getElementById("robo-speech");
+    const cloudPct = document.getElementById("cloud-pct");
+    const cloudMsg = document.getElementById("cloud-msg");
+    const statusDot = document.getElementById("robo-status-dot");
+
+    const milestoneData = [
+      { min: 0,  max: 10,  msg: "Sys Online",  mood: "idle",    color: "#34D399" },
+      { min: 11, max: 25,  msg: "Scanning...",  mood: "scan",    color: "#4E95FF" },
+      { min: 26, max: 45,  msg: "Wow, cool!",   mood: "excited", color: "#A78BFA" },
+      { min: 46, max: 65,  msg: "Keep going!",  mood: "cheer",   color: "#F59E0B" },
+      { min: 66, max: 80,  msg: "Almost...",     mood: "tense",   color: "#FB923C" },
+      { min: 81, max: 94,  msg: "So close!!",   mood: "hyper",   color: "#F472B6" },
+      { min: 95, max: 100, msg: "YESSS!!!",     mood: "party",   color: "#34D399" }
+    ];
+
+    let lastMilestoneKey = -1;
+    let popTimeout = null;
+
+    function updateLaserTelemetry() {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      const pct = docHeight > 0 ? Math.min(100, Math.max(0, Math.round((scrollY / docHeight) * 100))) : 0;
+
+      if (scrollBar) scrollBar.style.width = pct + "%";
+      if (sparkTip) sparkTip.style.left = pct + "%";
+      if (cloudPct) cloudPct.textContent = pct + "%";
+
+      // Robot walks along the filled portion of the bar (midpoint)
+      if (roboBuddy) {
+        roboBuddy.style.left = (pct / 2) + "%";
+      }
+
+      // Detect milestone zone
+      const current = milestoneData.find(m => pct >= m.min && pct <= m.max);
+      if (current) {
+        if (cloudMsg) cloudMsg.textContent = current.msg;
+        if (statusDot) statusDot.style.background = current.color;
+
+        // Set mood class on robot for CSS-driven reactions
+        if (current.min !== lastMilestoneKey) {
+          lastMilestoneKey = current.min;
+
+          // Remove all mood classes
+          roboBuddy.classList.remove("mood-idle", "mood-scan", "mood-excited", "mood-cheer", "mood-tense", "mood-hyper", "mood-party");
+          roboBuddy.classList.add("mood-" + current.mood);
+
+          // Trigger speech pop
+          if (roboSpeech) {
+            roboSpeech.classList.remove("is-talking");
+            void roboSpeech.offsetWidth;
+            roboSpeech.classList.add("is-talking");
+            clearTimeout(popTimeout);
+            popTimeout = setTimeout(() => {
+              roboSpeech.classList.remove("is-talking");
+            }, 3000);
+          }
+
+          // Eye color change
+          roboBuddy.style.setProperty("--eye-color", current.color);
+          roboBuddy.style.setProperty("--mood-color", current.color);
+        }
+      }
+    }
+
+    window.addEventListener("scroll", updateLaserTelemetry, { passive: true });
+    window.addEventListener("resize", updateLaserTelemetry, { passive: true });
+    updateLaserTelemetry();
   </script>
 
 </body>
