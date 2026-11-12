@@ -32,7 +32,7 @@
 
   --container-max: 1440px;
   --container-padding: clamp(1.25rem, 4vw, 3.5rem);
-  --section-spacing-y: clamp(5rem, 10vw, 9.5rem);
+  --section-spacing-y: clamp(2.5rem, 5vw, 4rem);
 
   --radius-xs: 2px;
   --radius-sm: 4px;
@@ -59,7 +59,8 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 4.5rem;
+  scroll-snap-type: y mandatory;
   background-color: var(--color-bg-deep);
   color: var(--color-text-primary);
   font-family: var(--font-body);
@@ -252,13 +253,50 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: var(--section-spacing-y);
   position: relative;
   border-bottom: 1px solid var(--border-subtle);
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+/* Scroll-triggered section fade-in & float-up */
+.section-wrapper,
+.hero-telemetry-banner {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.section-wrapper.is-visible,
+.hero-telemetry-banner.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@supports (animation-timeline: view()) {
+  .section-wrapper,
+  .hero-telemetry-banner {
+    animation: section-fade-reveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 25%;
+  }
+
+  @keyframes section-fade-reveal {
+    from {
+      opacity: 0.15;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 .section-header-editorial {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 3rem;
-  margin-bottom: clamp(3rem, 6vw, 5.5rem);
+  margin-bottom: clamp(1.5rem, 3.5vw, 2.5rem);
   align-items: start;
 }
 
@@ -1022,15 +1060,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-section {
-  min-height: 100vh;
-  padding-top: calc(5rem + 4.5rem);
-  padding-bottom: 5rem;
+  min-height: calc(100vh - 4.5rem);
+  padding-top: calc(4.5rem + 2rem);
+  padding-bottom: 2.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--border-subtle);
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 .hero-backdrop-stars {
@@ -2179,17 +2219,20 @@ h1, h2, h3, h4, h5, h6 {
 .site-footer {
   background: #050608;
   border-top: 1px solid var(--border-subtle);
-  padding-top: 5rem;
-  padding-bottom: 3.5rem;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
   position: relative;
   z-index: 2;
   overflow: hidden;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 /* ==========================================================================
-   WANDERING MOON — Pure CSS scroll-driven (no JavaScript)
-   Foreground decoration that sits beside section headings, alternating
-   left/right, with text overlapping it. Drops behind the footer.
+   WANDERING MOON — Unified scroll-driven moon (Hero to Footer)
+   Starts centered directly in the Hero orbit rings and smoothly travels
+   across every section as you scroll, alternating right/left, with text
+   overlapping it, and sinking behind the footer.
    ========================================================================== */
 
 /* Sections need higher z-index so their text overlaps the moon */
@@ -2200,7 +2243,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .wandering-moon {
   position: fixed;
-  top: 50%;
+  top: calc(6.5rem + min(240px, 40vw));
   left: 50%;
   /* Match the hero rotating moon size: 72% of max-width 480px ≈ 345px */
   width: clamp(180px, 34.5vw, 345px);
@@ -2211,6 +2254,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translate(-50%, -50%);
 
   animation: moon-wander 1s linear both;
   animation-timeline: scroll(root);
@@ -2221,172 +2265,97 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
 }
 
-/* Orbit rings */
-.wm-orbit-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  border: 1px solid rgba(78, 149, 255, 0.2);
-  pointer-events: none;
-}
-
-.wm-orbit-1 {
-  width: 170%;
-  height: 170%;
-  transform: translate(-50%, -50%) rotateX(68deg);
-  animation:
-    wm-orbit-spin 20s linear infinite,
-    wm-orbit-fade 1s linear both;
-  animation-timeline: auto, scroll(root);
-  border-style: dashed;
-  border-color: rgba(78, 149, 255, 0.15);
-}
-
-.wm-orbit-2 {
-  width: 200%;
-  height: 200%;
-  transform: translate(-50%, -50%) rotateX(72deg) rotateY(15deg);
-  animation:
-    wm-orbit-spin 30s linear infinite reverse,
-    wm-orbit-fade 1s linear both;
-  animation-timeline: auto, scroll(root);
-  border-color: rgba(52, 211, 153, 0.12);
-}
-
 /* -----------------------------------------------------------------------
    Moon path (scroll-driven):
-   Hero → About (RIGHT) → Hobbies (LEFT) → Schedule (RIGHT)
-   → Favorites (LEFT) → Footer (CENTER, BACKGROUND)
+   Hero (Center in orbit rings) → About (RIGHT) → Hobbies (LEFT)
+   → Schedule (RIGHT) → Favorites (LEFT) → Footer (CENTER, BEHIND)
 
-   Positions use calc(Xvw - 50%) so it's responsive.
-   -50% accounts for the element's own width offset.
+   Positions use calc(Xvw - 50%) so it is responsive across all displays.
+   -50% accounts for the element's own center origin.
    ----------------------------------------------------------------------- */
 @keyframes moon-wander {
-  /* ---- HERO: hidden behind the rotating hero moon ---- */
-  0% {
-    /* Offset upward to align with hero moon position (~35% from top) */
-    transform: translate(-50%, calc(-50% - 15vh)) scale(1);
-    opacity: 0;
-    z-index: 1;
-    filter: none;
-  }
-
-  /* Become visible as hero moon fades — seamless handoff */
-  3% {
-    transform: translate(-50%, calc(-50% - 15vh)) scale(1);
+  /* ---- HERO: Sitting directly inside the Hero orbit rings ---- */
+  0%, 8% {
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
     z-index: 2;
     filter: none;
   }
 
-  /* Detach — lift away from hero position */
-  8% {
-    transform: translate(-50%, -80%) scale(1);
+  /* Transition → Gliding to RIGHT side of About Me */
+  18% {
+    transform: translate(calc(28vw - 50%), calc(12vh - 50%)) scale(1);
     opacity: 0.85;
     z-index: 2;
     filter: none;
   }
+  28% {
+    transform: translate(calc(32vw - 50%), calc(15vh - 50%)) scale(1);
+    opacity: 0.8;
+    z-index: 2;
+    filter: none;
+  }
 
-  /* ---- ABOUT ME: RIGHT side ---- */
-  15% {
-    transform: translate(calc(30vw - 50%), -60%) scale(1);
+  /* Transition → Gliding across to LEFT side of Hobbies */
+  38% {
+    transform: translate(calc(-28vw - 50%), calc(12vh - 50%)) scale(1);
+    opacity: 0.8;
+    z-index: 2;
+    filter: none;
+  }
+  48% {
+    transform: translate(calc(-32vw - 50%), calc(15vh - 50%)) scale(1);
     opacity: 0.75;
     z-index: 2;
     filter: none;
   }
-  24% {
-    transform: translate(calc(33vw - 50%), -45%) scale(1);
+
+  /* Transition → Gliding across to RIGHT side of Schedule */
+  58% {
+    transform: translate(calc(28vw - 50%), calc(12vh - 50%)) scale(1);
+    opacity: 0.75;
+    z-index: 2;
+    filter: none;
+  }
+  68% {
+    transform: translate(calc(32vw - 50%), calc(15vh - 50%)) scale(1);
     opacity: 0.7;
     z-index: 2;
     filter: none;
   }
 
-  /* ---- HOBBIES: LEFT side ---- */
-  34% {
-    transform: translate(calc(-33vw - 50%), -55%) scale(1);
+  /* Transition → Gliding across to LEFT side of Favorites */
+  78% {
+    transform: translate(calc(-28vw - 50%), calc(12vh - 50%)) scale(1);
     opacity: 0.7;
     z-index: 2;
     filter: none;
   }
-  44% {
-    transform: translate(calc(-35vw - 50%), -40%) scale(1);
+  86% {
+    transform: translate(calc(-32vw - 50%), calc(15vh - 50%)) scale(1);
     opacity: 0.65;
     z-index: 2;
     filter: none;
   }
 
-  /* ---- SCHEDULE: RIGHT side ---- */
-  54% {
-    transform: translate(calc(32vw - 50%), -55%) scale(1);
-    opacity: 0.65;
-    z-index: 2;
-    filter: none;
-  }
-  64% {
-    transform: translate(calc(34vw - 50%), -40%) scale(1);
-    opacity: 0.6;
-    z-index: 2;
-    filter: none;
-  }
-
-  /* ---- FAVORITES: LEFT side ---- */
-  74% {
-    transform: translate(calc(-33vw - 50%), -50%) scale(1);
-    opacity: 0.6;
-    z-index: 2;
-    filter: none;
-  }
-  83% {
-    transform: translate(calc(-30vw - 50%), -40%) scale(1);
-    opacity: 0.55;
-    z-index: 2;
-    filter: none;
-  }
-
-  /* ---- FOOTER: drift to center & sink behind ---- */
-  92% {
-    transform: translate(-50%, -40%) scale(1);
-    opacity: 0.3;
+  /* Transition → Gliding into the Footer center and sinking behind content */
+  94% {
+    transform: translate(-50%, calc(20vh - 50%)) scale(1.05);
+    opacity: 0.35;
     z-index: -1;
-    filter: blur(1px) brightness(0.6);
+    filter: blur(1.5px) brightness(0.65);
   }
   100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.15;
+    transform: translate(-50%, calc(24vh - 50%)) scale(1.1);
+    opacity: 0.18;
     z-index: -1;
-    filter: blur(3px) brightness(0.4);
+    filter: blur(3px) brightness(0.45);
   }
 }
 
-/* Orbit rings fade through middle sections */
-@keyframes wm-orbit-fade {
-  0%   { opacity: 0.8; }
-  10%  { opacity: 0.5; }
-  50%  { opacity: 0.3; }
-  85%  { opacity: 0.2; }
-  100% { opacity: 0.08; }
-}
-
-@keyframes wm-orbit-spin {
-  from { transform: translate(-50%, -50%) rotateX(68deg) rotateZ(0deg); }
-  to   { transform: translate(-50%, -50%) rotateX(68deg) rotateZ(360deg); }
-}
-
-/* Hero rotating moon fades as wandering moon takes over (seamless handoff) */
-.hero-stage-visual-centered .moon-globe-sphere {
-  animation: hero-moon-hide 1s linear both;
-  animation-timeline: scroll(root);
-}
-
-@keyframes hero-moon-hide {
-  /* Visible at top — the wandering moon is hidden behind it */
-  0%, 1% {
-    opacity: 1;
-  }
-  /* Quick crossfade — wandering moon fades in at 3% */
-  4%, 100% {
-    opacity: 0;
+@media (max-width: 768px) {
+  html {
+    scroll-snap-type: y proximity;
   }
 }
 

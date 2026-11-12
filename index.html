@@ -143,10 +143,8 @@
 
   <main id="main-content">
 
-    <!-- Floating Moon that follows scroll across the entire page -->
+    <!-- Floating Moon that starts in the Hero and follows scroll across the entire page -->
     <div id="wandering-moon" class="wandering-moon" aria-hidden="true">
-      <div class="wm-orbit-ring wm-orbit-1"></div>
-      <div class="wm-orbit-ring wm-orbit-2"></div>
       <div class="moon-globe-sphere">
         <div class="moon-globe-texture"></div>
         <div class="moon-atmosphere-rim"></div>
@@ -169,11 +167,6 @@
               </div>
               <div class="orbit-ring meo" style="border-color: rgba(255, 255, 255, 0.15);"></div>
               <div class="orbit-ring geo" style="border-color: rgba(52, 211, 153, 0.35);"></div>
-            </div>
-
-            <div class="moon-globe-sphere">
-              <div class="moon-globe-texture"></div>
-              <div class="moon-atmosphere-rim"></div>
             </div>
 
             <div class="hero-hud-card hud-card-top" aria-hidden="true" style="border-left-color: var(--color-accent-orbit);">
@@ -689,6 +682,21 @@
     window.addEventListener("scroll", updateLaserTelemetry, { passive: true });
     window.addEventListener("resize", updateLaserTelemetry, { passive: true });
     updateLaserTelemetry();
+
+    // ========================================================================
+    // Scroll Reveal Fade-in Observer for Sections
+    // ========================================================================
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".section-wrapper, .hero-telemetry-banner").forEach(el => {
+      sectionObserver.observe(el);
+    });
   </script>
 
 </body>
