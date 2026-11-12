@@ -697,6 +697,97 @@
     document.querySelectorAll(".section-wrapper, .hero-telemetry-banner").forEach(el => {
       sectionObserver.observe(el);
     });
+
+    // ========================================================================
+    // Cinematic Slow-Motion Section Gliding & Snapping
+    // ========================================================================
+    const snapTargets = Array.from(document.querySelectorAll('#hero, #about, #hobbies, #schedule, #favorites, .site-footer'));
+    const navBarHeight = 72; // 4.5rem offset
+    let isGliding = false;
+    let glideAnimId = null;
+
+    function cinematicScrollTo(targetY, duration = 1050) {
+      if (glideAnimId) cancelAnimationFrame(glideAnimId);
+      isGliding = true;
+
+      const startY = window.scrollY || window.pageYOffset;
+      const distance = targetY - startY;
+      const startTime = performance.now();
+
+      // Slow-motion quartic easing: silky start, graceful float, soft landing
+      function easeInOutQuart(t) {
+        return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+      }
+
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeInOutQuart(progress);
+
+        window.scrollTo(0, startY + distance * easedProgress);
+
+        if (progress < 1) {
+          glideAnimId = requestAnimationFrame(step);
+        } else {
+          setTimeout(() => {
+            isGliding = false;
+          }, 100);
+        }
+      }
+
+      glideAnimId = requestAnimationFrame(step);
+    }
+
+    // Intercept mouse wheel for slow-motion section transitions
+    window.addEventListener("wheel", (e) => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+
+      if (isGliding) {
+        e.preventDefault();
+        return;
+      }
+
+      // Threshold to distinguish deliberate scroll from trackpad drift
+      if (Math.abs(e.deltaY) < 22) return;
+
+      const currentScrollY = window.scrollY || window.pageYOffset;
+      const direction = e.deltaY > 0 ? 1 : -1;
+
+      // Find current section index
+      let currentIndex = 0;
+      snapTargets.forEach((sec, idx) => {
+        const top = sec.getBoundingClientRect().top + currentScrollY - navBarHeight - 20;
+        if (currentScrollY >= top) {
+          currentIndex = idx;
+        }
+      });
+
+      const nextIndex = Math.max(0, Math.min(snapTargets.length - 1, currentIndex + direction));
+
+      if (nextIndex !== currentIndex) {
+        e.preventDefault();
+        const targetSec = snapTargets[nextIndex];
+        const targetY = Math.max(0, targetSec.getBoundingClientRect().top + currentScrollY - navBarHeight);
+        cinematicScrollTo(targetY, 1050);
+      }
+    }, { passive: false });
+
+    // Also apply slow-motion gliding to anchor navigation clicks
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener("click", (e) => {
+        const hash = link.getAttribute("href");
+        if (!hash || hash === "#") return;
+        const targetEl = document.querySelector(hash);
+        if (targetEl) {
+          e.preventDefault();
+          const targetY = Math.max(0, targetEl.getBoundingClientRect().top + (window.scrollY || window.pageYOffset) - navBarHeight);
+          cinematicScrollTo(targetY, 1050);
+          if (history.pushState) {
+            history.pushState(null, null, hash);
+          }
+        }
+      });
+    });
   </script>
 
 </body>

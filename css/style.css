@@ -60,7 +60,6 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   scroll-padding-top: 4.5rem;
-  scroll-snap-type: y mandatory;
   background-color: var(--color-bg-deep);
   color: var(--color-text-primary);
   font-family: var(--font-body);
@@ -254,8 +253,6 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 3;
   border-bottom: 1px solid var(--border-subtle);
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
 }
 
 /* Scroll-triggered section fade-in & float-up */
@@ -1070,8 +1067,6 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--border-subtle);
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
 }
 
 .hero-backdrop-stars {
@@ -2225,8 +2220,6 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 2;
   overflow: hidden;
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
 }
 
 /* ==========================================================================
@@ -2356,12 +2349,6 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0.15;
     z-index: -1;
     filter: blur(4px) brightness(0.4);
-  }
-}
-
-@media (max-width: 768px) {
-  html {
-    scroll-snap-type: y proximity;
   }
 }
 
