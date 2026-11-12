@@ -2266,11 +2266,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* -----------------------------------------------------------------------
    Moon path (scroll-driven):
-   Hero (Center in orbit rings) → About (RIGHT gutter) → Hobbies (LEFT gutter)
-   → Schedule (RIGHT gutter) → Favorites (LEFT gutter) → Footer (CENTER, BEHIND)
+   Hero (Center in orbit rings) → About (RIGHT side, lifted high beside heading)
+   → Hobbies (LEFT side, lifted high) → Schedule (RIGHT side, lifted high)
+   → Favorites (LEFT side, lifted high) → Footer (CENTER, BEHIND)
 
-   Positioned in the outer gutters and strictly in the background (z-index: 0)
-   so it never obscures or covers text, headings, cards, or tables.
+   Lifted vertically (calc(-16vh - 50%)) so it frames each section's header
+   and sits strictly in the background (z-index: 0) behind all text and cards.
    ----------------------------------------------------------------------- */
 @keyframes moon-wander {
   /* ---- HERO: Sitting directly inside the Hero orbit rings ---- */
@@ -2281,57 +2282,57 @@ h1, h2, h3, h4, h5, h6 {
     filter: none;
   }
 
-  /* Transition → Gliding to RIGHT gutter for About Me */
+  /* Transition → Gliding to RIGHT side of About Me (lifted high beside heading) */
   18% {
-    transform: translate(calc(38vw - 50%), calc(15vh - 50%)) scale(0.9);
-    opacity: 0.45;
+    transform: translate(calc(28vw - 50%), calc(-14vh - 50%)) scale(1);
+    opacity: 0.65;
     z-index: 0;
     filter: none;
   }
   28% {
-    transform: translate(calc(40vw - 50%), calc(18vh - 50%)) scale(0.9);
-    opacity: 0.45;
+    transform: translate(calc(30vw - 50%), calc(-16vh - 50%)) scale(1);
+    opacity: 0.6;
     z-index: 0;
     filter: none;
   }
 
-  /* Transition → Gliding across to LEFT gutter for Hobbies */
+  /* Transition → Gliding across to LEFT side of Hobbies (lifted high beside heading) */
   38% {
-    transform: translate(calc(-38vw - 50%), calc(15vh - 50%)) scale(0.9);
-    opacity: 0.45;
+    transform: translate(calc(-28vw - 50%), calc(-14vh - 50%)) scale(1);
+    opacity: 0.6;
     z-index: 0;
     filter: none;
   }
   48% {
-    transform: translate(calc(-40vw - 50%), calc(18vh - 50%)) scale(0.9);
-    opacity: 0.45;
+    transform: translate(calc(-30vw - 50%), calc(-16vh - 50%)) scale(1);
+    opacity: 0.55;
     z-index: 0;
     filter: none;
   }
 
-  /* Transition → Gliding across to RIGHT gutter for Schedule */
+  /* Transition → Gliding across to RIGHT side of Schedule (lifted high beside heading) */
   58% {
-    transform: translate(calc(38vw - 50%), calc(15vh - 50%)) scale(0.9);
-    opacity: 0.45;
+    transform: translate(calc(28vw - 50%), calc(-14vh - 50%)) scale(1);
+    opacity: 0.55;
     z-index: 0;
     filter: none;
   }
   68% {
-    transform: translate(calc(40vw - 50%), calc(18vh - 50%)) scale(0.9);
-    opacity: 0.45;
+    transform: translate(calc(30vw - 50%), calc(-16vh - 50%)) scale(1);
+    opacity: 0.5;
     z-index: 0;
     filter: none;
   }
 
-  /* Transition → Gliding across to LEFT gutter for Favorites */
+  /* Transition → Gliding across to LEFT side of Favorites (lifted high beside heading) */
   78% {
-    transform: translate(calc(-38vw - 50%), calc(15vh - 50%)) scale(0.9);
-    opacity: 0.45;
+    transform: translate(calc(-28vw - 50%), calc(-14vh - 50%)) scale(1);
+    opacity: 0.5;
     z-index: 0;
     filter: none;
   }
   86% {
-    transform: translate(calc(-40vw - 50%), calc(18vh - 50%)) scale(0.9);
+    transform: translate(calc(-30vw - 50%), calc(-16vh - 50%)) scale(1);
     opacity: 0.45;
     z-index: 0;
     filter: none;
@@ -2339,13 +2340,13 @@ h1, h2, h3, h4, h5, h6 {
 
   /* Transition → Gliding into the Footer center and sinking behind content */
   94% {
-    transform: translate(-50%, calc(20vh - 50%)) scale(1.05);
-    opacity: 0.3;
+    transform: translate(-50%, calc(-5vh - 50%)) scale(1.05);
+    opacity: 0.28;
     z-index: -1;
     filter: blur(2px) brightness(0.6);
   }
   100% {
-    transform: translate(-50%, calc(25vh - 50%)) scale(1.1);
+    transform: translate(-50%, calc(0vh - 50%)) scale(1.1);
     opacity: 0.15;
     z-index: -1;
     filter: blur(4px) brightness(0.4);
