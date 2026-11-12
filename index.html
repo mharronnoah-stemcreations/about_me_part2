@@ -430,17 +430,6 @@
       </div>
     </section>
 
-    <section id="private-section" hidden class="container">
-      <div class="private-note-card">
-        <span class="telemetry-tag hazard">
-          <span class="telemetry-dot" style="color: var(--color-accent-hazard);"></span>
-          SECRET CLEARANCE UNLOCKED
-        </span>
-        <h2>Private Notes</h2>
-        <p>If mahanap mo po yaa sir within 2 days na mapasa ko may 10 pesos ka po ;)) HEHEHEHEHE.</p>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer" role="contentinfo">
@@ -464,13 +453,15 @@
           </p>
 
           <details class="private-access">
-            <summary aria-label="Open private section">-->•</summary>
-            <form id="private-access-form">
-              <label for="private-password">Password</label>
-              <input id="private-password" type="password" required autocomplete="off" placeholder="Enter password...">
-              <button type="submit">Open</button>
-              <span id="password-message" role="status" aria-live="polite"></span>
-            </form>
+            <summary aria-label="Open classified easter egg note" title="Classified Note">-->•</summary>
+            <div class="private-note-card" style="margin-top: 1.25rem; text-align: left;">
+              <span class="telemetry-tag hazard">
+                <span class="telemetry-dot" style="color: var(--color-accent-hazard);"></span>
+                SECRET CLEARANCE UNLOCKED
+              </span>
+              <h2>Private Notes</h2>
+              <p>If mahanap mo po yaa sir within 2 days na mapasa ko may 10 pesos ka po ;)) HEHEHEHEHE.</p>
+            </div>
           </details>
 
           <p class="footer-desc">
@@ -514,138 +505,6 @@
 
     </div>
   </footer>
-
-  <script>
-    const sectionPassword = "BSCS 1A";
-    const accessForm = document.getElementById("private-access-form");
-    const passwordInput = document.getElementById("private-password");
-    const passwordMessage = document.getElementById("password-message");
-    const privateSection = document.getElementById("private-section");
-    const privateAccess = document.querySelector(".private-access");
-
-    accessForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      if (passwordInput.value !== sectionPassword) {
-        passwordMessage.textContent = "Incorrect password.";
-        passwordInput.select();
-        return;
-      }
-
-      privateSection.hidden = false;
-      privateAccess.open = false;
-      accessForm.reset();
-      passwordMessage.textContent = "";
-      privateSection.scrollIntoView({ behavior: "smooth" });
-    });
-
-
-    // ========================================================================
-    // Scroll Reveal Fade-in Observer for Sections
-    // ========================================================================
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll(".section-wrapper, .hero-telemetry-banner").forEach(el => {
-      sectionObserver.observe(el);
-    });
-
-    // ========================================================================
-    // Cinematic Slow-Motion Section Gliding & Snapping
-    // ========================================================================
-    const snapTargets = Array.from(document.querySelectorAll('#hero, #about, #hobbies, #schedule, #favorites, .site-footer'));
-    const navBarHeight = 72; // 4.5rem offset
-    let isGliding = false;
-    let glideAnimId = null;
-
-    function cinematicScrollTo(targetY, duration = 1050) {
-      if (glideAnimId) cancelAnimationFrame(glideAnimId);
-      isGliding = true;
-
-      const startY = window.scrollY || window.pageYOffset;
-      const distance = targetY - startY;
-      const startTime = performance.now();
-
-      // Slow-motion quartic easing: silky start, graceful float, soft landing
-      function easeInOutQuart(t) {
-        return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
-      }
-
-      function step(now) {
-        const elapsed = now - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easedProgress = easeInOutQuart(progress);
-
-        window.scrollTo(0, startY + distance * easedProgress);
-
-        if (progress < 1) {
-          glideAnimId = requestAnimationFrame(step);
-        } else {
-          setTimeout(() => {
-            isGliding = false;
-          }, 100);
-        }
-      }
-
-      glideAnimId = requestAnimationFrame(step);
-    }
-
-    // Intercept mouse wheel for slow-motion section transitions
-    window.addEventListener("wheel", (e) => {
-      if (e.ctrlKey || e.metaKey || e.altKey) return;
-
-      if (isGliding) {
-        e.preventDefault();
-        return;
-      }
-
-      // Threshold to distinguish deliberate scroll from trackpad drift
-      if (Math.abs(e.deltaY) < 22) return;
-
-      const currentScrollY = window.scrollY || window.pageYOffset;
-      const direction = e.deltaY > 0 ? 1 : -1;
-
-      // Find current section index
-      let currentIndex = 0;
-      snapTargets.forEach((sec, idx) => {
-        const top = sec.getBoundingClientRect().top + currentScrollY - navBarHeight - 20;
-        if (currentScrollY >= top) {
-          currentIndex = idx;
-        }
-      });
-
-      const nextIndex = Math.max(0, Math.min(snapTargets.length - 1, currentIndex + direction));
-
-      if (nextIndex !== currentIndex) {
-        e.preventDefault();
-        const targetSec = snapTargets[nextIndex];
-        const targetY = Math.max(0, targetSec.getBoundingClientRect().top + currentScrollY - navBarHeight);
-        cinematicScrollTo(targetY, 1050);
-      }
-    }, { passive: false });
-
-    // Also apply slow-motion gliding to anchor navigation clicks
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener("click", (e) => {
-        const hash = link.getAttribute("href");
-        if (!hash || hash === "#") return;
-        const targetEl = document.querySelector(hash);
-        if (targetEl) {
-          e.preventDefault();
-          const targetY = Math.max(0, targetEl.getBoundingClientRect().top + (window.scrollY || window.pageYOffset) - navBarHeight);
-          cinematicScrollTo(targetY, 1050);
-          if (history.pushState) {
-            history.pushState(null, null, hash);
-          }
-        }
-      });
-    });
-  </script>
 
 </body>
 </html>

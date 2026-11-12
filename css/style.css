@@ -62,12 +62,23 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   scroll-padding-top: 4.5rem;
+  scroll-snap-type: y proximity;
   background-color: var(--color-bg-deep);
   color: var(--color-text-primary);
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#hero,
+#about,
+#hobbies,
+#schedule,
+#favorites,
+.site-footer {
+  scroll-snap-align: start;
+  scroll-margin-top: 4.5rem;
 }
 
 body {
@@ -274,19 +285,11 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid var(--border-subtle);
 }
 
-/* Scroll-triggered section fade-in & float-up */
+/* Section presentation: clean default, with CSS scroll-driven reveal enhancement */
 .section-wrapper,
 .hero-telemetry-banner {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.section-wrapper.is-visible,
-.hero-telemetry-banner.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 @supports (animation-timeline: view()) {
