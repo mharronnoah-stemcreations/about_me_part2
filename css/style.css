@@ -245,13 +245,14 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
 
 .section-wrapper {
   padding-top: var(--section-spacing-y);
   padding-bottom: var(--section-spacing-y);
   position: relative;
+  z-index: 3;
   border-bottom: 1px solid var(--border-subtle);
   scroll-snap-align: start;
   scroll-snap-stop: normal;
@@ -2235,10 +2236,15 @@ h1, h2, h3, h4, h5, h6 {
    overlapping it, and sinking behind the footer.
    ========================================================================== */
 
-/* Sections need higher z-index so their text overlaps the moon */
-.section-wrapper {
+/* Sections and text content strictly stack above the wandering moon */
+.section-wrapper,
+.author-dossier-grid,
+.dossier-card,
+.schedule-table-wrap,
+.favorites-editorial-card,
+.section-header-editorial {
   position: relative;
-  z-index: 3;
+  z-index: 4;
 }
 
 .wandering-moon {
@@ -2248,7 +2254,7 @@ h1, h2, h3, h4, h5, h6 {
   /* Match the hero rotating moon size: 72% of max-width 480px ≈ 345px */
   width: clamp(180px, 34.5vw, 345px);
   height: clamp(180px, 34.5vw, 345px);
-  z-index: 2;
+  z-index: 0; /* Strictly behind all text and content */
   pointer-events: none;
   will-change: transform, opacity;
   display: flex;
@@ -2267,89 +2273,89 @@ h1, h2, h3, h4, h5, h6 {
 
 /* -----------------------------------------------------------------------
    Moon path (scroll-driven):
-   Hero (Center in orbit rings) → About (RIGHT) → Hobbies (LEFT)
-   → Schedule (RIGHT) → Favorites (LEFT) → Footer (CENTER, BEHIND)
+   Hero (Center in orbit rings) → About (RIGHT gutter) → Hobbies (LEFT gutter)
+   → Schedule (RIGHT gutter) → Favorites (LEFT gutter) → Footer (CENTER, BEHIND)
 
-   Positions use calc(Xvw - 50%) so it is responsive across all displays.
-   -50% accounts for the element's own center origin.
+   Positioned in the outer gutters and strictly in the background (z-index: 0)
+   so it never obscures or covers text, headings, cards, or tables.
    ----------------------------------------------------------------------- */
 @keyframes moon-wander {
   /* ---- HERO: Sitting directly inside the Hero orbit rings ---- */
   0%, 8% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
-    z-index: 2;
+    z-index: 0;
     filter: none;
   }
 
-  /* Transition → Gliding to RIGHT side of About Me */
+  /* Transition → Gliding to RIGHT gutter for About Me */
   18% {
-    transform: translate(calc(28vw - 50%), calc(12vh - 50%)) scale(1);
-    opacity: 0.85;
-    z-index: 2;
+    transform: translate(calc(38vw - 50%), calc(15vh - 50%)) scale(0.9);
+    opacity: 0.45;
+    z-index: 0;
     filter: none;
   }
   28% {
-    transform: translate(calc(32vw - 50%), calc(15vh - 50%)) scale(1);
-    opacity: 0.8;
-    z-index: 2;
+    transform: translate(calc(40vw - 50%), calc(18vh - 50%)) scale(0.9);
+    opacity: 0.45;
+    z-index: 0;
     filter: none;
   }
 
-  /* Transition → Gliding across to LEFT side of Hobbies */
+  /* Transition → Gliding across to LEFT gutter for Hobbies */
   38% {
-    transform: translate(calc(-28vw - 50%), calc(12vh - 50%)) scale(1);
-    opacity: 0.8;
-    z-index: 2;
+    transform: translate(calc(-38vw - 50%), calc(15vh - 50%)) scale(0.9);
+    opacity: 0.45;
+    z-index: 0;
     filter: none;
   }
   48% {
-    transform: translate(calc(-32vw - 50%), calc(15vh - 50%)) scale(1);
-    opacity: 0.75;
-    z-index: 2;
+    transform: translate(calc(-40vw - 50%), calc(18vh - 50%)) scale(0.9);
+    opacity: 0.45;
+    z-index: 0;
     filter: none;
   }
 
-  /* Transition → Gliding across to RIGHT side of Schedule */
+  /* Transition → Gliding across to RIGHT gutter for Schedule */
   58% {
-    transform: translate(calc(28vw - 50%), calc(12vh - 50%)) scale(1);
-    opacity: 0.75;
-    z-index: 2;
+    transform: translate(calc(38vw - 50%), calc(15vh - 50%)) scale(0.9);
+    opacity: 0.45;
+    z-index: 0;
     filter: none;
   }
   68% {
-    transform: translate(calc(32vw - 50%), calc(15vh - 50%)) scale(1);
-    opacity: 0.7;
-    z-index: 2;
+    transform: translate(calc(40vw - 50%), calc(18vh - 50%)) scale(0.9);
+    opacity: 0.45;
+    z-index: 0;
     filter: none;
   }
 
-  /* Transition → Gliding across to LEFT side of Favorites */
+  /* Transition → Gliding across to LEFT gutter for Favorites */
   78% {
-    transform: translate(calc(-28vw - 50%), calc(12vh - 50%)) scale(1);
-    opacity: 0.7;
-    z-index: 2;
+    transform: translate(calc(-38vw - 50%), calc(15vh - 50%)) scale(0.9);
+    opacity: 0.45;
+    z-index: 0;
     filter: none;
   }
   86% {
-    transform: translate(calc(-32vw - 50%), calc(15vh - 50%)) scale(1);
-    opacity: 0.65;
-    z-index: 2;
+    transform: translate(calc(-40vw - 50%), calc(18vh - 50%)) scale(0.9);
+    opacity: 0.45;
+    z-index: 0;
     filter: none;
   }
 
   /* Transition → Gliding into the Footer center and sinking behind content */
   94% {
     transform: translate(-50%, calc(20vh - 50%)) scale(1.05);
-    opacity: 0.35;
+    opacity: 0.3;
     z-index: -1;
-    filter: blur(1.5px) brightness(0.65);
+    filter: blur(2px) brightness(0.6);
   }
   100% {
-    transform: translate(-50%, calc(24vh - 50%)) scale(1.1);
-    opacity: 0.18;
+    transform: translate(-50%, calc(25vh - 50%)) scale(1.1);
+    opacity: 0.15;
     z-index: -1;
-    filter: blur(3px) brightness(0.45);
+    filter: blur(4px) brightness(0.4);
   }
 }
 
