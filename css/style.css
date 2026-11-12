@@ -2579,33 +2579,32 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.35rem;
+  gap: 1.25rem;
   max-width: 1200px;
   width: 100%;
-  margin-top: -6rem;
+  margin-top: 1rem;
   position: relative;
   z-index: 5;
 }
 
 .hero-centered-editorial .hero-main-headline {
-  font-family: var(--font-pixel);
-  font-size: clamp(2.6rem, 5.8vw, 5.5rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.2vw, 4.75rem);
   font-weight: 700;
   line-height: 1.08;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.035em;
   text-align: center;
+  text-transform: uppercase;
   color: #ffffff;
-  text-shadow: 
-    0 0 32px rgba(78, 149, 255, 0.55),
-    0 4px 32px rgba(8, 9, 11, 0.98),
-    0 0 18px rgba(0, 0, 0, 0.9);
+  text-shadow: none;
+  filter: none;
 }
 
 .hero-centered-editorial .hero-supporting-copy {
   text-align: center;
   max-width: 720px;
   margin: 0 auto;
-  text-shadow: 0 2px 12px rgba(8, 9, 11, 0.9);
+  text-shadow: none;
 }
 
 .hero-centered-editorial .hero-cta-group {
