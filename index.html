@@ -6,15 +6,25 @@
   <meta name="description" content="Guess_Who_Harron_Is — Personal developer portfolio, academic schedule, and profile of Harron Noah A. Melgar, 1st Year BSCS Student at Bicol University.">
   <title>Guess_Who_Harron_Is // Harron Noah A. Melgar — BSCS 1A Portfolio</title>
 
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Pixelify+Sans:wght@500;600;700&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+
+  <details class="audio-player-shell">
+    <summary class="audio-player-moon" aria-label="Open lunar radio controls" title="Lunar radio controls"></summary>
+    <div class="audio-player-controls">
+      <div class="audio-player-heading">
+        <span class="audio-player-label">LUNAR RADIO</span>
+        <span class="audio-player-status" aria-hidden="true">LOOP</span>
+      </div>
+      <audio class="background-audio-player" autoplay controls loop preload="auto" aria-label="Background music">
+        <source src="images/Retro-Sci-Fi-Planet_Looping.ogg" type="audio/ogg">
+      </audio>
+    </div>
+  </details>
 
   <header class="site-nav-header" role="banner">
     <input type="checkbox" id="nav-toggle" class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
@@ -35,27 +45,27 @@
         </div>
       </a>
 
-      <!-- Center: Navigation Links with HUD Floating Pill -->
       <nav role="navigation" aria-label="Main Navigation">
         <ul class="nav-links-menu nav-pill-dock">
           <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#origin" class="nav-link">Origin</a></li>
           <li><a href="#hobbies" class="nav-link">Hobbies</a></li>
-          <li><a href="#schedule" class="nav-link">Schedule</a></li>
+          <li><a href="#memories" class="nav-link">Memories</a></li>
           <li><a href="#favorites" class="nav-link">Favorites</a></li>
+          <li><a href="#toolkit" class="nav-link">Toolkit</a></li>
+          <li><a href="#reflection" class="nav-link">Reflection</a></li>
         </ul>
       </nav>
 
-      <!-- Right: Action CTA & Mobile Hamburger Trigger -->
       <div class="nav-action-wrapper">
-        <a href="https://www.facebook.com/share/1A4miNh1UD/" target="_blank" rel="noopener noreferrer" class="btn-nav-action" aria-label="Visit Harron's Facebook Profile">
+        <a href="mailto:harronnoahanonuevo.melgar26@bicol-u.edu.ph" class="btn-nav-action" aria-label="Email Harron">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            <path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm10 9L2 6v12h20V6l-10 7zm0-2.4L20 6H4l8 4.6z"/>
           </svg>
-          <span>Connect on Facebook</span>
+          <span>Email Me</span>
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="opacity: 0.7;"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
         </a>
 
-        <!-- Pure CSS Hamburger Label -->
         <label for="nav-toggle" class="mobile-hamburger-btn" aria-label="Open Navigation Menu">
           <span></span>
           <span></span>
@@ -73,7 +83,6 @@
 
   <main id="main-content">
 
-    <!-- Floating Moon that starts in the Hero and follows scroll across the entire page -->
     <div id="wandering-moon" class="wandering-moon" aria-hidden="true">
       <div class="moon-globe-sphere">
         <div class="moon-globe-texture"></div>
@@ -130,8 +139,8 @@
                 <span>Explore About Me</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
-              <a href="#schedule" class="btn-secondary-hero">
-                <span>View Class Schedule</span>
+              <a href="#memories" class="btn-secondary-hero">
+                <span>View Memory Archive</span>
               </a>
             </div>
 
@@ -225,12 +234,73 @@
       </div>
     </section>
 
+    <section id="origin" class="section-wrapper" aria-labelledby="heading-origin">
+      <div class="container">
+
+        <div class="section-header-editorial">
+          <div class="section-meta-block">
+            <span class="section-index">DOSSIER // 02</span>
+            <span class="section-meta-title">ORIGIN TRACE // WHY CS</span>
+          </div>
+          <div class="section-title-wrap">
+            <h2 id="heading-origin" class="heading-section">Why I Chose Computer Science</h2>
+          </div>
+        </div>
+
+        <article class="origin-story-panel" aria-labelledby="origin-story-title">
+          <div class="origin-terminal-bar" aria-hidden="true">
+            <span class="origin-terminal-title">curiosity.log</span>
+            <span class="origin-terminal-state">
+              <span class="telemetry-dot" style="color: var(--color-accent-cyan);"></span>
+              RUNNING
+            </span>
+          </div>
+
+          <div class="origin-story-content">
+            <h3 id="origin-story-title" class="heading-subsection">It Started With A Screen</h3>
+
+            <p class="origin-story-lead">
+              Ever since I was a child, I have been curious about technology — especially computers. I remember watching videos on an old PC with a CRT monitor. Back then, it was so much fun just to sit in front of that glowing screen and explore.
+            </p>
+
+            <p class="origin-story-body">
+              Then my uncle gave me a more modern PC. I watched movies on it all day, and I also started playing around with it — opening folders, changing settings, and figuring out what the device was capable of. I kept exploring and exploring, and the more I discovered, the more I wanted to know.
+            </p>
+
+            <blockquote class="origin-story-quote">
+              <p>&ldquo;Yes!! I finally found a way to satisfy my curiosity even further.&rdquo;</p>
+              <cite>8TH GRADE // CHOOSING COMPUTER PROGRAMMING</cite>
+            </blockquote>
+
+            <p class="origin-story-body">
+              In 8th grade, we were given the chance to choose a course for our 9th and 10th grade path. I didn't think twice. I chose Computer Programming, and that decision became years of learning. Today I can build apps, create chatbots, and develop AI tools that help with modern problems.
+            </p>
+
+            <div class="origin-build-row">
+              <span class="origin-build-label">NOW BUILDING</span>
+              <ul class="origin-build-tags">
+                <li>APPS</li>
+                <li>CHATBOTS</li>
+                <li>AI</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="origin-closing-row">
+            <span class="origin-closing-label">WHY COMPUTER SCIENCE</span>
+            <p class="origin-closing-text">To understand the systems behind the screen — and keep satisfying the <strong>curiosity</strong> that started it all.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
     <section id="hobbies" class="section-wrapper" aria-labelledby="heading-hobbies">
       <div class="container">
         
         <div class="section-header-editorial">
           <div class="section-meta-block">
-            <span class="section-index">DOSSIER // 02</span>
+            <span class="section-index">DOSSIER // 03</span>
             <span class="section-meta-title">PASSIONS &amp; HORIZONS</span>
           </div>
           <div class="section-title-wrap">
@@ -279,7 +349,6 @@
             </ul>
           </div>
 
-          <!-- Top 3 Goals Card -->
           <div id="goals" class="dossier-card">
             <div style="display: flex; justify-content: space-between; align-items: center;">
               <span class="telemetry-tag neutral" style="color: var(--color-accent-cyan); border-color: rgba(52, 211, 153, 0.3);">FLIGHT &amp; LIFE OBJECTIVES</span>
@@ -314,76 +383,169 @@
       </div>
     </section>
 
-    <section id="schedule" class="section-wrapper" aria-labelledby="heading-schedule">
+    <section id="memories" class="section-wrapper" aria-labelledby="heading-memories">
       <div class="container">
         
         <div class="section-header-editorial">
           <div class="section-meta-block">
-            <span class="section-index">DOSSIER // 03</span>
-            <span class="section-meta-title">ACADEMIC TIMETABLE</span>
+            <span class="section-index">DOSSIER // 04</span>
+            <span class="section-meta-title">MEMORY ARCHIVE</span>
           </div>
           <div class="section-title-wrap">
-            <h2 id="heading-schedule" class="heading-section">My Class Schedule</h2>
+            <h2 id="heading-memories" class="heading-section">Captured Moments</h2>
             <p class="section-lead-text">
-              Weekly class schedule for the first semester, BS Computer Science curriculum at Bicol University.
+              A photo collage of the people, places, and small celebrations that make up my story. Hover or focus a frame to slide the photo aside and reveal the memory behind it.
             </p>
           </div>
         </div>
 
-        <div class="schedule-table-wrap">
-          <table class="schedule-telemetry-table">
-            <thead>
-              <tr>
-                <th>Subject</th>
-                <th>Day</th>
-                <th>Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="schedule-subject-name">CS 101: Introduction to Computing</span></td>
-                <td><span class="schedule-day-badge">M W</span></td>
-                <td><span class="schedule-time-badge">7:30 - 8:30</span></td>
-              </tr>
-              <tr>
-                <td><span class="schedule-subject-name">CS 102: Computer Programming 1</span></td>
-                <td><span class="schedule-day-badge">M W Th</span></td>
-                <td><span class="schedule-time-badge">9:00 - 11:30</span></td>
-              </tr>
-              <tr>
-                <td><span class="schedule-subject-name">Mathematical Analysis</span></td>
-                <td><span class="schedule-day-badge">T Th F</span></td>
-                <td><span class="schedule-time-badge">10:30 - 11:30 &amp; 8:00 - 9:30 on Fridays</span></td>
-              </tr>
-              <tr>
-                <td><span class="schedule-subject-name">Physics for Computing</span></td>
-                <td><span class="schedule-day-badge">T Th</span></td>
-                <td><span class="schedule-time-badge">9:00 - 10:00</span></td>
-              </tr>
-              <tr>
-                <td><span class="schedule-subject-name">PathFit 1</span></td>
-                <td><span class="schedule-day-badge">Th</span></td>
-                <td><span class="schedule-time-badge">7:00 - 8:30</span></td>
-              </tr>
-              <tr>
-                <td><span class="schedule-subject-name">Understanding the Self</span></td>
-                <td><span class="schedule-day-badge">F</span></td>
-                <td><span class="schedule-time-badge">1:00 - 3:30</span></td>
-              </tr>
-              <tr>
-                <td><span class="schedule-subject-name">LTS</span></td>
-                <td><span class="schedule-day-badge">Sat</span></td>
-                <td><span class="schedule-time-badge">1:30 - 4:30</span></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="memory-collage-toolbar">
+          <span class="memory-toolbar-status">
+            <span class="telemetry-dot" style="color: var(--color-accent-cyan);"></span>
+            MEMORY ARCHIVE // 04 FRAMES ONLINE
+          </span>
+          <span class="memory-toolbar-instruction">HOVER OR FOCUS A FRAME <span aria-hidden="true">→</span> SLIDE TO REVEAL</span>
         </div>
 
-        <div class="spec-comment-callout">
-          <!-- MY COMMENT 2: <tr> represents a table row, <th> represents a header cell, and <td> represents a data cell just the same as the ones used in spreadsheets, but here they are coded and used differently but almost the same way to create a structured layout for the class schedule. -->
-          <span class="spec-comment-header">MY COMMENT 2</span>
-          <p class="spec-comment-body"><code>&lt;tr&gt;</code> represents a table row, <code>&lt;th&gt;</code> represents a header cell, and <code>&lt;td&gt;</code> represents a data cell just the same as the ones used in spreadsheets, but here they are coded and used differently to create a structured layout for the class schedule.</p>
+        <div class="memory-collage" role="group" aria-label="Personal photo collage">
+          <figure class="memory-card memory-card--science" tabindex="0">
+            <div class="memory-card__media">
+              <img
+                src="images/625089938_26432922399731585_4647551278437342765_n.jpg"
+                alt="Harron and classmates posing together at a science expo booth with project posters"
+                width="2048"
+                height="1536"
+                loading="lazy"
+                decoding="async">
+            </div>
+            <figcaption class="memory-card__caption">
+              <span class="memory-card__ghost" aria-hidden="true">01</span>
+              <span class="memory-card__index">FRAME 01 // NSEF</span>
+              <h3 class="memory-card__title">Future Scientists</h3>
+              <p class="memory-card__text">Our team during the National Science Engineering Fair (NSEF) along with our so called predecessors.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="memory-card memory-card--cats" tabindex="0">
+            <div class="memory-card__media">
+              <img
+                src="images/688255212_2237217537093616_4848713998379840470_n.jpg"
+                alt="Two kittens sleeping curled up together in a basket, one wearing a yellow heart collar"
+                width="2048"
+                height="1280"
+                loading="lazy"
+                decoding="async">
+            </div>
+            <figcaption class="memory-card__caption">
+              <span class="memory-card__ghost" aria-hidden="true">02</span>
+              <span class="memory-card__index">FRAME 02 // NAMI & SANJI</span>
+              <h3 class="memory-card__title">QTπ</h3>
+              <p class="memory-card__text">My two kittens back at home, napping together in a cozy position.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="memory-card memory-card--family" tabindex="0">
+            <div class="memory-card__media">
+              <img
+                src="images/471528829_960582049310453_3117952465001526949_n.jpg"
+                alt="Harron and his family gathered around a table in front of a lit Christmas tree"
+                width="1153"
+                height="2048"
+                loading="lazy"
+                decoding="async">
+            </div>
+            <figcaption class="memory-card__caption">
+              <span class="memory-card__ghost" aria-hidden="true">03</span>
+              <span class="memory-card__index">FRAME 03 // CHRISTMAS AT HOME</span>
+              <h3 class="memory-card__title">Home, Warm &amp; Loud</h3>
+              <p class="memory-card__text">Christmas with my family... warm lights, full plates, and stories that get louder every year.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="memory-card memory-card--selfie" tabindex="0">
+            <div class="memory-card__media">
+              <img
+                src="images/IMG_20251022_075627.jpg"
+                alt="A close-up selfie of Harron and a friend making silly scrunched-up faces"
+                width="4080"
+                height="3072"
+                loading="lazy"
+                decoding="async">
+            </div>
+            <figcaption class="memory-card__caption">
+              <span class="memory-card__ghost" aria-hidden="true">04</span>
+              <span class="memory-card__index">FRAME 04 // SILLY SELFIE</span>
+              <h3 class="memory-card__title">"MY" Partner<3 </h3>
+              <p class="memory-card__text">The one who always made my day :)) </p>
+            </figcaption>
+          </figure>
         </div>
+
+        <details class="timetable-archive">
+          <summary>
+            <span class="timetable-archive__label">
+              <span class="telemetry-dot" style="color: var(--color-accent-cyan);"></span>
+              ACADEMIC ARCHIVE // CLASS SCHEDULE
+            </span>
+          </summary>
+
+          <div class="timetable-archive__inner">
+            <div class="schedule-table-wrap">
+              <table class="schedule-telemetry-table">
+                <thead>
+                  <tr>
+                    <th>Subject</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="schedule-subject-name">CS 101: Introduction to Computing</span></td>
+                    <td><span class="schedule-day-badge">M W</span></td>
+                    <td><span class="schedule-time-badge">7:30 - 8:30</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="schedule-subject-name">CS 102: Computer Programming 1</span></td>
+                    <td><span class="schedule-day-badge">M W Th</span></td>
+                    <td><span class="schedule-time-badge">9:00 - 11:30</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="schedule-subject-name">Mathematical Analysis</span></td>
+                    <td><span class="schedule-day-badge">T Th F</span></td>
+                    <td><span class="schedule-time-badge">10:30 - 11:30 &amp; 8:00 - 9:30 on Fridays</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="schedule-subject-name">Physics for Computing</span></td>
+                    <td><span class="schedule-day-badge">T Th</span></td>
+                    <td><span class="schedule-time-badge">9:00 - 10:00</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="schedule-subject-name">PathFit 1</span></td>
+                    <td><span class="schedule-day-badge">Th</span></td>
+                    <td><span class="schedule-time-badge">7:00 - 8:30</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="schedule-subject-name">Understanding the Self</span></td>
+                    <td><span class="schedule-day-badge">F</span></td>
+                    <td><span class="schedule-time-badge">1:00 - 3:30</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="schedule-subject-name">LTS</span></td>
+                    <td><span class="schedule-day-badge">Sat</span></td>
+                    <td><span class="schedule-time-badge">1:30 - 4:30</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="spec-comment-callout">
+              <!-- MY COMMENT 2: <tr> represents a table row, <th> represents a header cell, and <td> represents a data cell just the same as the ones used in spreadsheets, but here they are coded and used differently but almost the same way to create a structured layout for the class schedule. -->
+              <span class="spec-comment-header">MY COMMENT 2</span>
+              <p class="spec-comment-body"><code>&lt;tr&gt;</code> represents a table row, <code>&lt;th&gt;</code> represents a header cell, and <code>&lt;td&gt;</code> represents a data cell just the same as the ones used in spreadsheets, but here they are coded and used differently to create a structured layout for the class schedule.</p>
+            </div>
+          </div>
+        </details>
 
       </div>
     </section>
@@ -393,7 +555,7 @@
         
         <div class="section-header-editorial">
           <div class="section-meta-block">
-            <span class="section-index">DOSSIER // 04</span>
+            <span class="section-index">DOSSIER // 05</span>
             <span class="section-meta-title">CULTURAL &amp; DIGITAL HUBS</span>
           </div>
           <div class="section-title-wrap">
@@ -430,6 +592,220 @@
       </div>
     </section>
 
+    <section id="toolkit" class="section-wrapper" aria-labelledby="heading-toolkit">
+      <div class="container">
+
+        <div class="section-header-editorial">
+          <div class="section-meta-block">
+            <span class="section-index">DOSSIER // 06</span>
+            <span class="section-meta-title">EVERYDAY INDEX</span>
+          </div>
+          <div class="section-title-wrap">
+            <h2 id="heading-toolkit" class="heading-section">My Everyday Toolkit</h2>
+            <p class="section-lead-text">
+              The apps I visit, AI tools I learn with, books I enjoy, and skills I’m building.
+            </p>
+          </div>
+        </div>
+
+        <div class="toolkit-panel">
+
+          <div class="toolkit-block">
+            <div class="toolkit-block-head">
+              <h3 class="toolkit-block-title">Apps</h3>
+              <span class="toolkit-block-meta">08 ENTRIES</span>
+            </div>
+            <table class="toolkit-table">
+              <caption class="sr-only">Favorite apps</caption>
+              <thead>
+                <tr>
+                  <th scope="col" class="toolkit-col-index">#</th>
+                  <th scope="col">App</th>
+                  <th scope="col" class="toolkit-col-detail">Use</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="toolkit-index">01</td>
+                  <th scope="row" class="toolkit-name">Facebook</th>
+                  <td class="toolkit-detail">Social</td>
+                </tr>
+                <tr>
+                  <td class="toolkit-index">02</td>
+                  <th scope="row" class="toolkit-name">TikTok</th>
+                  <td class="toolkit-detail">Short video</td>
+                </tr>
+                <tr>
+                  <td class="toolkit-index">03</td>
+                  <th scope="row" class="toolkit-name">Instagram</th>
+                  <td class="toolkit-detail">Photos &amp; reels</td>
+                </tr>
+                <tr>
+                  <td class="toolkit-index">04</td>
+                  <th scope="row" class="toolkit-name">Mobile Legends: Bang Bang</th>
+                  <td class="toolkit-detail">MOBA</td>
+                </tr>
+                <tr>
+                  <td class="toolkit-index">05</td>
+                  <th scope="row" class="toolkit-name">Call of Duty: Mobile</th>
+                  <td class="toolkit-detail">FPS</td>
+                </tr>
+                <tr>
+                  <td class="toolkit-index">06</td>
+                  <th scope="row" class="toolkit-name">Chess.com</th>
+                  <td class="toolkit-detail">Puzzles &amp; rapid</td>
+                </tr>
+                <tr>
+                  <td class="toolkit-index">07</td>
+                  <th scope="row" class="toolkit-name">Lichess</th>
+                  <td class="toolkit-detail">Study &amp; analysis</td>
+                </tr>
+                <tr>
+                  <td class="toolkit-index">08</td>
+                  <th scope="row" class="toolkit-name">YouTube</th>
+                  <td class="toolkit-detail">Videos &amp; tutorials</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="toolkit-block">
+            <div class="toolkit-block-head">
+              <h3 class="toolkit-block-title">Tools</h3>
+              <span class="toolkit-block-meta">03 ENTRIES</span>
+            </div>
+            <table class="toolkit-table">
+              <caption class="sr-only">AI tools used for learning</caption>
+              <thead>
+                <tr>
+                  <th scope="col" class="toolkit-col-index">#</th>
+                  <th scope="col">Tool</th>
+                  <th scope="col" class="toolkit-col-detail">Use</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="toolkit-index">01</td>
+                  <th scope="row" class="toolkit-name">Gemini</th>
+                  <td class="toolkit-detail">Guided learning</td>
+                </tr>
+                <tr>
+                  <td class="toolkit-index">02</td>
+                  <th scope="row" class="toolkit-name">ChatGPT</th>
+                  <td class="toolkit-detail">Deep research mode</td>
+                </tr>
+                <tr>
+                  <td class="toolkit-index">03</td>
+                  <th scope="row" class="toolkit-name">Claude</th>
+                  <td class="toolkit-detail">Learning support</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="toolkit-block">
+            <div class="toolkit-block-head">
+              <h3 class="toolkit-block-title">Books</h3>
+              <span class="toolkit-block-meta">BY RICK RIORDAN</span>
+            </div>
+            <table class="toolkit-table">
+              <caption class="sr-only">Favorite book series by Rick Riordan</caption>
+              <thead>
+                <tr>
+                  <th scope="col" class="toolkit-col-index">#</th>
+                  <th scope="col">Series</th>
+                  <th scope="col" class="toolkit-col-detail">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="toolkit-index">01</td>
+                  <th scope="row" class="toolkit-name">Percy Jackson &amp; the Olympians</th>
+                  <td class="toolkit-detail">Original series</td>
+                </tr>
+                <tr>
+                  <td class="toolkit-index">02</td>
+                  <th scope="row" class="toolkit-name">The Heroes of Olympus</th>
+                  <td class="toolkit-detail">Sequel series</td>
+                </tr>
+                <tr>
+                  <td class="toolkit-index">03</td>
+                  <th scope="row" class="toolkit-name">The Trials of Apollo</th>
+                  <td class="toolkit-detail">Collecting the set</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="toolkit-block">
+            <div class="toolkit-block-head">
+              <h3 class="toolkit-block-title">Skills</h3>
+              <span class="toolkit-block-meta">IN PROGRESS</span>
+            </div>
+            <table class="toolkit-table">
+              <caption class="sr-only">Skill currently being built</caption>
+              <thead>
+                <tr>
+                  <th scope="col" class="toolkit-col-index">#</th>
+                  <th scope="col">Skill</th>
+                  <th scope="col" class="toolkit-col-detail">Method</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="toolkit-index">01</td>
+                  <th scope="row" class="toolkit-name">Memory</th>
+                  <td class="toolkit-detail">Woodpecker Method</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="toolkit-footnote">
+              I’m working on my memory by practicing consistently with the Woodpecker Method.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="reflection" class="section-wrapper" aria-labelledby="heading-reflection">
+      <div class="container">
+
+        <div class="section-header-editorial">
+          <div class="section-meta-block">
+            <span class="section-index">REFLECTION // 07</span>
+            <span class="section-meta-title">HARRON NOAH A. MELGAR · BSCS 1A</span>
+          </div>
+          <div class="section-title-wrap">
+            <h2 id="heading-reflection" class="heading-section">My Reflection</h2>
+          </div>
+        </div>
+
+        <div class="reflection-copy">
+          <div class="reflection-window-bar">
+            <span class="reflection-window-controls" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+            <span class="reflection-window-title">reflection.txt</span>
+            <span aria-hidden="true"></span>
+          </div>
+          <div class="reflection-copy-body">
+            <p class="body-standard">
+              I had learned an had so much fun messing around and experimenting with my site copying styles I see and developing ideas of my own too, for example the moving moon the inspo is about how the sticky header sticks at the top of the navebar always then I had a fun idea what if my moon does the same thing so my site wouldn't be so boring so yeah that's how it turned out a moving moon across the sections.
+            </p>
+            <p class="body-standard">
+              I had another idea to design it more those rings in the hero section I so I went to look for references I can learn from and well I love how it turned out then well some of my classmates said that the table should be replaced with something but I just hid it away then replaced it with a memory album containing the memories in my life I love very much the outcome of it and well the caption thing when the cursor is hovered above it is well I saw it from Randolf and it looked cool so I used it also :)).
+            </p>
+            <p class="body-standard">
+              I have learned so much from this activity while having lots of fun along the way.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer" role="contentinfo">
@@ -453,7 +829,7 @@
           </p>
 
           <details class="private-access">
-            <summary aria-label="Open classified easter egg note" title="Classified Note">-->•</summary>
+            <summary aria-label="Open classified easter egg note" title="Classified Note">•</summary>
             <div class="private-note-card" style="margin-top: 1.25rem; text-align: left;">
               <span class="telemetry-tag hazard">
                 <span class="telemetry-dot" style="color: var(--color-accent-hazard);"></span>
@@ -473,9 +849,12 @@
           <h4 class="footer-col-title">Portfolio Corridors</h4>
           <ul class="footer-links-list">
             <li><a href="#about">About</a></li>
+            <li><a href="#origin">Origin</a></li>
             <li><a href="#hobbies">Hobbies</a></li>
-            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#memories">Memories</a></li>
             <li><a href="#favorites">Favorites</a></li>
+            <li><a href="#toolkit">Toolkit</a></li>
+            <li><a href="#reflection">Reflection</a></li>
           </ul>
         </div>
 
